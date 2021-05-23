@@ -30,7 +30,15 @@ app.post("/comments/create", (req, res) => {
 // view single comment
 app.get("/comments/:id", (req, res) => {
   const { id } = req.params;
-  const foundComment = data.find((comment) => comment.id === parseInt(id));
+  let foundComment = data.find((comment) => comment.id === parseInt(id));
+
+  /**
+   * since newly created comments will get an ID from UUID(), they will return undefined
+   * if we try to parse the ID. This is just a temp solution to get the comment we want.
+   */
+  if (!foundComment) {
+    foundComment = data.find((comment) => comment.id === id);
+  }
 
   res.render("comments/show", { foundComment });
 });
