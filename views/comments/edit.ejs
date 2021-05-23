@@ -4,18 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create</title>
+    <title>Edit comment</title>
   </head>
   <body>
-    <h1>Create a Comment</h1>
-    <form action="/comments/create" method="POST">
+    <h1>Edit Comment</h1>
+    <form
+      action="/comments/<%= foundComment.id %>/edit?_method=PATCH"
+      method="POST"
+    >
       <div class="credentials">
         <label for="name">Name</label>
         <input
           type="text"
           name="name"
           id="name"
-          placeholder="enter your name"
+          placeholder="enter a new name"
           required
         />
         <label for="email">email</label>
@@ -23,7 +26,7 @@
           type="email"
           name="email"
           id="email"
-          placeholder="enter your email"
+          placeholder="enter a new email"
           required
         />
       </div>
@@ -31,16 +34,13 @@
       <div class="text">
         <label for="newComment">Comment</label>
         <br />
-        <textarea
-          name="comment"
-          id="newComment"
-          cols="30"
-          rows="5"
-          required
-        ></textarea>
+        <textarea name="comment" id="newComment" cols="60" rows="5" required>
+<%= foundComment.body %> 
+        </textarea>
       </div>
 
-      <button type="submit">Send</button>
+      <button type="submit">Update</button>
+      <a href="/comments">Go Back</a>
     </form>
   </body>
 </html>
