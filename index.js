@@ -27,6 +27,14 @@ app.post("/comments/create", (req, res) => {
   res.redirect("/comments");
 });
 
+// view single comment
+app.get("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const foundComment = data.find((comment) => comment.id === parseInt(id));
+
+  res.render("comments/show", { foundComment });
+});
+
 app.listen(PORT, (req, res) => {
   console.log(`Listening on ${PORT}`);
 });

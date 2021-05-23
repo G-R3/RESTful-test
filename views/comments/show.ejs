@@ -4,26 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing</title>
+    <title>Comment Details</title>
   </head>
   <body>
-    <h1>Comments</h1>
+    <h1>Comment Details</h1>
+
     <section>
-      <a href="/comments/create">Add New</a>
-      <% for(let comment of data) { %>
       <div class="comment">
         <div class="header">
-          <h1 class="comment-name"><%= comment.name %></h1>
+          <h1 class="comment-name"><%= foundComment.name %></h1>
         </div>
         <div class="body">
-          <p class="comment-body"><%= comment.body %></p>
+          <p class="comment-body"><%= foundComment.body %></p>
         </div>
         <div class="footer">
-          <a href="/comments/<%= comment.id %> ">Details</a>
+          <span class="comment-email"><%= foundComment.email %></span>
+          <a href="/comments">View All</a>
           <a href="">Edit</a>
         </div>
       </div>
-      <% } %>
     </section>
   </body>
 </html>
