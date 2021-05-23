@@ -21,6 +21,12 @@
           <span class="comment-email"><%= foundComment.email %></span>
           <a href="/comments">View All</a>
           <a href="/comments/<%= foundComment.id %>/edit">Edit</a>
+          <form
+            action="/comments/<%= foundComment.id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Delete</button>
+          </form>
         </div>
       </div>
     </section>

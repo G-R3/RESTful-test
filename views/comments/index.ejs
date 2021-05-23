@@ -21,6 +21,12 @@
         <div class="footer">
           <a href="/comments/<%= comment.id %> ">Details</a>
           <a href="/comments/<%= comment.id %>/edit ">Edit</a>
+          <form
+            action="/comments/<%= comment.id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Delete</button>
+          </form>
         </div>
       </div>
       <% } %>
